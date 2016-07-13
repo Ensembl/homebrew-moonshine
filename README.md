@@ -13,4 +13,4 @@ Moonshine formulas depend on closed source software or software that is not publ
 
 # The Moonshine Archive
 
-All moonshine formulas expect an environment variable called `ENSEMBL_MOONSHINE_ARCHIVES` be made available where all dependencies are held.
+All moonshine formulas expect an environment variable called `ENSEMBL_MOONSHINE_ARCHIVE` be made available where all dependencies are held.

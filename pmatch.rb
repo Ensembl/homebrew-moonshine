@@ -2,8 +2,8 @@ class Pmatch < Formula
 
   desc "Protein aligner based on ssaha. Contact Ensembl for details"
   odie 'No ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['ENSEMBL_MOONSHINE_ARCHIVE'].nil?
-  url ENV['ENSEMBL_MOONSHINE_ARCHIVE']+"/rdutils-1.0.0.tar.gz"
-  sha256 "3ccabf799b0c04f01fed86e0c00a872cc633a02bbf696bf9df6ebf7f77b8397d"
+  url 'file://'+ENV['ENSEMBL_MOONSHINE_ARCHIVE']+"/rd-utils-1.0.0.tar.gz"
+  sha256 "d855b69dd324650e952e9dffe2b619bbee7c4982f569c84232861eace88a9585"
   version "1.0.0"
 
   patch :DATA

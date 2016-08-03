@@ -8,8 +8,10 @@ class Phobius < Formula
   version "1.01"
 
   def install 
-    inreplace 'phobious.pl', '/usr/bin/perl', '/usr/bin/env perl'
-    prefix.install Dir['*']
+    cd 'tmpCG3gh3/phobius' do
+      inreplace 'phobious.pl', '/usr/bin/perl', '/usr/bin/env perl'
+      prefix.install Dir['*']
+    done
   end
 
   test do

@@ -4,7 +4,7 @@ class Phobius < Formula
   homepage "http://phobius.sbc.su.se/"
   odie 'No ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['ENSEMBL_MOONSHINE_ARCHIVE'].nil?
   url 'file://'+ENV['ENSEMBL_MOONSHINE_ARCHIVE']+"/phobius-1.01.tar.gz"
-  sha256 "09b1f01e7262f6f531714ed77dbfd7fe6227635f0f22ec136650946197ef88fb"
+  sha256 "8d15e043318afbc9915616abc67f47b3aa50256d3329f31bbc9b8f44a81e65bd"
   version "1.01"
 
   def install 

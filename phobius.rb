@@ -11,7 +11,7 @@ class Phobius < Formula
     cd 'tmpCG3gh3/phobius' do
       inreplace 'phobious.pl', '/usr/bin/perl', '/usr/bin/env perl'
       prefix.install Dir['*']
-    done
+    end
   end
 
   test do

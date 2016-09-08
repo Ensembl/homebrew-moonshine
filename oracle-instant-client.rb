@@ -17,22 +17,29 @@ class OracleInstantClient < Formula
   end
 
   def install 
+
+    execbin=(libexec+'bin')
+    execbin.mkpath
+
     resource('sdk').stage do
       prefix.install 'sdk'
     end
 
     resource('sqlplus').stage do
-      bin.install 'sqlplus'
+      execbin.install 'sqlplus'
       lib.install 'libsqlplus.so'
       lib.install 'libsqlplusic.so'
     end
 
-    bin.install 'adrci'
-    bin.install 'genezi'
-    bin.install 'uidrvci'
+    execbin.install 'adrci'
+    execbin.install 'genezi'
+    execbin.install 'uidrvci'
 
-    libext.install Dir['*.jar']
+    libexec.install Dir['*.jar']
     lib.install Dir['*.so*']
+
+    bin.install Dir[execbin/"*"]
+    bin.env_script_all_files(execbin, :LD_LIBRARY_PATH => "#{lib}"])
   end
 
   test do

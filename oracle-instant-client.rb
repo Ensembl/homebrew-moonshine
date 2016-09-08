@@ -31,7 +31,7 @@ class OracleInstantClient < Formula
     bin.install 'genezi'
     bin.install 'uidrvci'
 
-    extlib.install Dir['*.jar']
+    libext.install Dir['*.jar']
     lib.install Dir['*.so*']
   end
 

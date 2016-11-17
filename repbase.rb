@@ -11,4 +11,12 @@ class Repbase < Formula
     libexec.install Dir["./*"]
   end
 
+  def caveats; <<-EOS.undent
+    If you just have updated Repbase you would want to run:
+      brew postinstall ensembl/ensembl/repeatmasker
+    It will update the RepBase libraries in RepeatMasker
+    and recreate the blast index for RMBlast
+    EOS
+  end
+
 end

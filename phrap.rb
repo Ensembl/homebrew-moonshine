@@ -12,7 +12,7 @@ class Phrap < Formula
     doc.install('phrap.doc')
     doc.install('general.doc')
     doc.install('swat.doc')
-    share.install('vector.seq')
+    pkgshare.install('vector.seq')
     bin.install('PAM250')
     bin.install('BLOSUM62')
     bin.install('BLOSUM50')

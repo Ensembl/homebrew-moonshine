@@ -9,6 +9,7 @@ class Phrap < Formula
 
   def install
     system "make"
+    File.rename 'cluster', 'pcluster'
     doc.install('phrap.doc')
     doc.install('general.doc')
     doc.install('swat.doc')
@@ -24,7 +25,7 @@ class Phrap < Formula
     bin.install('phrap')
     bin.install('cross_match')
     bin.install('phrapview')
-    bin.install('cluster')
+    bin.install('pcluster')
     bin.install('loco')
     bin.install('calf_merge')
    end

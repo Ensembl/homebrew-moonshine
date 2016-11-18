@@ -42,6 +42,9 @@ class OracleInstantClient < Formula
     libexec.install Dir['*.jar']
     lib.install Dir['*.so*']
 
+    ln_s (lib+'libclntsh.so.12.1'), (lib+'libclntsh.so')
+    ln_s (lib+'libocci.so.12.1'), (lib+'libocci.so')
+
     bin.install Dir[execbin/"*"]
     bin.env_script_all_files(execbin, :LD_LIBRARY_PATH => "#{lib}")
   end

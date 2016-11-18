@@ -23,6 +23,10 @@ class OracleInstantClient < Formula
 
     resource('sdk').stage do
       prefix.install 'sdk'
+      # (prefix+'rdbms/demo').mkpath
+      # demo_mk = prefix+'sdk/demo/demo.mk'
+      # target_mk = prefix+'rdbms/demo/demo_xe.mk'
+      # File.symlink(demo_mk, target_mk) if demo_mk.exist? && !target_mk.exist?
     end
 
     resource('sqlplus').stage do
@@ -39,7 +43,7 @@ class OracleInstantClient < Formula
     lib.install Dir['*.so*']
 
     bin.install Dir[execbin/"*"]
-    bin.env_script_all_files(execbin, :LD_LIBRARY_PATH => "#{lib}"])
+    bin.env_script_all_files(execbin, :LD_LIBRARY_PATH => "#{lib}")
   end
 
   test do

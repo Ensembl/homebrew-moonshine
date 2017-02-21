@@ -7,6 +7,12 @@ class Seg < Formula
   version "1.0.0"
 
   def install 
+    inreplace 'seg/makefile', 'cc', 'cc -g'
+    #Must do this to re-write the subroutine "double lnperm(sv, tot)" and avoid running over array lengths
+    inreplace 'seg/seg.c' do |s|
+      s.gsub! 'ans = lnfac[tot];', "int n;\nn = sizeof(lnfac) / sizeof(double);\n if(tot >= n) return 0.0; ans = lnfac[tot];"
+      s.gsub! 'ans -= lnfac[sv[i]];', "if(sv[i] >= n) break; \n ans -= lnfac[sv[i]];"
+    end
     cd 'seg' do
       system 'make'
       bin.install 'seg'

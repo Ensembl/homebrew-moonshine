@@ -7,6 +7,8 @@ class Pmatch < Formula
   version "1.0.0"
 
   patch :DATA
+  
+  depends_on 'glib'
 
   def install
     system 'make'

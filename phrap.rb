@@ -2,8 +2,8 @@ class Phrap < Formula
 
   desc "phrap/cross_match/swat are software to align DNA sequences and generate assemblies from shotgun DNA sequences"
   homepage "http://www.phrap.org/phredphrapconsed.html#block_phrap"
-  odie 'No ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['ENSEMBL_MOONSHINE_ARCHIVE'].nil?
-  url 'file://'+ENV['ENSEMBL_MOONSHINE_ARCHIVE']+"/phrap-1.090518.tgz"
+  odie 'No HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE'].nil?
+  url 'file://'+ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/phrap-1.090518.tgz"
   sha256 "81f50c4410e8604cdefcc34ef6dc7b037be3bb45b94c439611a5590c1cf83665"
   version "1.090518"
 

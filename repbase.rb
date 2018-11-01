@@ -3,15 +3,15 @@ class Repbase < Formula
   desc "Curated set of repeat libraries for RepeatMasker"
   homepage "http://www.girinst.org/repbase/index.html"
   odie 'No HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE'].nil?
-  url 'file://'+ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/repeatmaskerlibraries-20160829.tar.gz"
-  sha256 "91d29e03302d4ba553a5236c59e78eeccbc53908922f25ef30b240c4e664abb1"
-  version "20160829"
+  version "20170127"
+  url 'file://'+ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/repbase-#{version}.tar.gz"
+  sha256 "a963f988510408e7dd793e0d78a6d086edff6ce2161dd17197adb32dcd323bc1"
 
   def install
     libexec.install Dir["./*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     If you just have updated Repbase you would want to run:
       brew postinstall ensembl/ensembl/repeatmasker
     It will update the RepBase libraries in RepeatMasker

@@ -9,7 +9,7 @@ class Phobius < Formula
 
   def install 
     cd 'tmpCG3gh3/phobius' do
-      inreplace 'phobius.pl', '/usr/bin/perl', '/usr/bin/env perl'
+      inreplace 'phobius.pl', '/usr/bin/perl -w', "/usr/bin/env perl\nuse warnings;"
       prefix.install Dir['*']
     end
   end

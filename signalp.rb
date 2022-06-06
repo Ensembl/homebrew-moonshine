@@ -1,9 +1,15 @@
+class CopyFileStrategy < AbstractFileDownloadStrategy
+  def fetch(timeout: nil, **options)
+    system "cp", "#{url}", "#{cached_location}"
+  end
+end
+
 class Signalp < Formula
 
   desc "Predicts the presence and location of signal peptide cleavage sites in amino acid sequences"
   homepage "http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp"
   odie 'No HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE'].nil?
-  url 'file://'+ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/signalp-4.1e.tar.gz"
+  url ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/signalp-4.1e.tar.gz", :using => CopyFileStrategy
   sha256 "9cb6543e7f154f1a40ec33efad12b783c5ae0677ee5e0294f718073a4c2d83d6"
   version "4.1e"
 

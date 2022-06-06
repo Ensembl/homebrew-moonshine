@@ -1,9 +1,15 @@
+class CopyFileStrategy < AbstractFileDownloadStrategy
+  def fetch(timeout: nil, **options)
+    system "cp", "#{url}", "#{cached_location}"
+  end
+end
+
 class Phrap < Formula
 
   desc "phrap/cross_match/swat are software to align DNA sequences and generate assemblies from shotgun DNA sequences"
   homepage "http://www.phrap.org/phredphrapconsed.html#block_phrap"
   odie 'No HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE'].nil?
-  url 'file://'+ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/phrap-1.090518.tgz"
+  url ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/phrap-1.090518.tgz", :using => CopyFileStrategy
   sha256 "81f50c4410e8604cdefcc34ef6dc7b037be3bb45b94c439611a5590c1cf83665"
   version "1.090518"
 

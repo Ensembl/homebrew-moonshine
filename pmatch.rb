@@ -1,8 +1,14 @@
+class CopyFileStrategy < AbstractFileDownloadStrategy
+  def fetch(timeout: nil, **options)
+    system "cp", "#{url}", "#{cached_location}"
+  end
+end
+
 class Pmatch < Formula
 
   desc "Protein aligner based on ssaha. Contact Ensembl for details"
   odie 'No HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE environment variable found' if ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE'].nil?
-  url 'file://'+ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/rd-utils-1.0.0.tar.gz"
+  url ENV['HOMEBREW_ENSEMBL_MOONSHINE_ARCHIVE']+"/rd-utils-1.0.0.tar.gz", :using => CopyFileStrategy
   sha256 "d855b69dd324650e952e9dffe2b619bbee7c4982f569c84232861eace88a9585"
   version "1.0.0"
 

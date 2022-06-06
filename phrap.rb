@@ -13,6 +13,13 @@ class Phrap < Formula
   sha256 "81f50c4410e8604cdefcc34ef6dc7b037be3bb45b94c439611a5590c1cf83665"
   version "1.090518"
 
+  depends_on "gcc@6"
+
+  fails_with gcc: "7"
+  fails_with gcc: "8"
+  fails_with gcc: "9"
+  fails_with gcc: "10"
+
   def install
     system "make"
     File.rename 'cluster', 'pcluster'
